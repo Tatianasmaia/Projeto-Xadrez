@@ -14,23 +14,36 @@ namespace ProjetoXadrez
 
                 while (!partida.Terminada)
                 {
-                    Console.Clear();
-                    Tela.mostrarTabuleiro(partida.Tab);
+                    try
+                    {
+                        Console.Clear();
+                        Tela.mostrarTabuleiro(partida.Tab);
+                        Console.WriteLine();
+                        Console.WriteLine("Turno: " + partida.Turno);
+                        Console.WriteLine("Agurdando jogada: " + partida.JogadorAtual);
 
-                    Console.WriteLine();
-                    Console.Write("Origem: ");
-                    Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                        Console.WriteLine();
+                        Console.Write("Origem: ");
+                        Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                        partida.ValidarPosicaoDeOrigem(origem);
 
-                    bool[,] posicoesPossiveis = partida.Tab.peca(origem).MovimentosPossiveis();
+                        bool[,] posicoesPossiveis = partida.Tab.peca(origem).MovimentosPossiveis();
 
-                    Console.Clear();
-                    Tela.mostrarTabuleiro(partida.Tab, posicoesPossiveis);
+                        Console.Clear();
+                        Tela.mostrarTabuleiro(partida.Tab, posicoesPossiveis);
 
-                    Console.WriteLine();
-                    Console.Write("Destino: ");
-                    Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+                        Console.WriteLine();
+                        Console.Write("Destino: ");
+                        Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+                        partida.ValidarPosicaoDeDestino(origem, destino);
 
-                    partida.ExecutarMovimento(origem, destino);
+                        partida.RealizarJogada(origem, destino);
+                    }
+                    catch(TabuleiroException e)
+                    {
+                        Console.WriteLine("Erro: " + e.Message);
+                        Console.ReadLine();
+                    }
 
                 }
 

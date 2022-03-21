@@ -17,10 +17,7 @@ namespace ProjetoXadrez
                     try
                     {
                         Console.Clear();
-                        Tela.mostrarTabuleiro(partida.Tab);
-                        Console.WriteLine();
-                        Console.WriteLine("Turno: " + partida.Turno);
-                        Console.WriteLine("Agurdando jogada: " + partida.JogadorAtual);
+                        Tela.MostrarPartida(partida);
 
                         Console.WriteLine();
                         Console.Write("Origem: ");

@@ -43,9 +43,8 @@ namespace ProjetoXadrez
                     }
 
                 }
-
-
-                Tela.mostrarTabuleiro(partida.Tab);
+                Console.Clear();
+                Tela.MostrarPartida(partida);
 
             }
             catch(TabuleiroException e)

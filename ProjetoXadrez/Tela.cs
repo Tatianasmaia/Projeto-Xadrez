@@ -15,6 +15,11 @@ namespace ProjetoXadrez
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.Turno);
             Console.WriteLine("Agurdando jogada: " + partida.JogadorAtual);
+            if (partida.Xeque)
+            {
+                Console.WriteLine("Xeque!");
+            }
+            
         }
 
         public static void MostrarPecasCapturadas(PartidaDeXadrez partida)

@@ -45,7 +45,7 @@ namespace xadrez
 
                 pos.DefinirValores(Posicao.linha - 2, Posicao.coluna);
                 Posicao p2 = new Posicao(Posicao.linha - 1, Posicao.coluna);
-                if (Tabuleiro.PosicaoValida(p2) && Livre(p2) && Livre(pos) && Tabuleiro.PosicaoValida(pos) && QtdMovimentos == 0)
+                if (Tabuleiro.PosicaoValida(p2) && Livre(p2) && Tabuleiro.PosicaoValida(pos) && Livre(pos) && QtdMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }

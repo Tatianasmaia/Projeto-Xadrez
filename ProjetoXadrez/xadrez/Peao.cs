@@ -20,7 +20,7 @@ namespace xadrez
         private bool ExisteInimigo(Posicao pos)
         {
             Peca p = Tabuleiro.peca(pos);
-            return p == null || p.Cor != Cor;
+            return p != null && p.Cor != Cor;
         }
 
         private bool Livre(Posicao pos)
@@ -43,7 +43,8 @@ namespace xadrez
                 }
 
                 pos.DefinirValores(Posicao.linha - 2, Posicao.coluna);
-                if (Tabuleiro.PosicaoValida(pos) && Livre(pos) && QtdMovimentos == 0)
+                Posicao p2 = new Posicao(Posicao.linha - 1, Posicao.coluna);
+                if (Tabuleiro.PosicaoValida(p2) && Livre(p2) && Livre(pos) && Tabuleiro.PosicaoValida(pos) && QtdMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
@@ -69,7 +70,8 @@ namespace xadrez
                 }
 
                 pos.DefinirValores(Posicao.linha + 2, Posicao.coluna);
-                if (Tabuleiro.PosicaoValida(pos) && Livre(pos) && QtdMovimentos == 0)
+                Posicao p2 = new Posicao(Posicao.linha + 1, Posicao.coluna);
+                if (Tabuleiro.PosicaoValida(pos) && Livre(pos) && Tabuleiro.PosicaoValida(p2) && Livre(p2) && QtdMovimentos == 0)
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }

@@ -34,11 +34,11 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.DefinirValores(pos.linha - 1, pos.coluna + 1);
+                pos.DefinirValores(pos.linha - 1, pos.coluna - 1);
             }
 
             //NE
-            pos.DefinirValores(Posicao.linha - 1, Posicao.coluna - 1);
+            pos.DefinirValores(Posicao.linha - 1, Posicao.coluna + 1);
             while (Tabuleiro.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
